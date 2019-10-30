@@ -1,4 +1,6 @@
 #!/bin/python3  
+import os.path
+from os import path
 print(" ___________              ________           .__  .__          __") 
 print(" \__    ___/___           \______ \   ____   |  | |__| _______/  |_ ")
 print("   |    | /  _ \   ______  |    |  \ /  _ \  |  | |  |/  ___/\   __\ ")
@@ -9,20 +11,33 @@ print(" By none92 ") ### My art work
 print ("Welcome to your to-do list") #Very small intro
 print("\n")
 print ("On your current list you have:") #Show the current list
-
+counter=0 # To keep count the position we are in
+i=1 #Filling an empty spot
+if path.exists("todo.txt") == False: #Check if the text file exist or not
+    while i > 0 :
+        response = input("todo.txt does not exist, would you like to create a new todo.txt file?: ")
+        if response == "y":
+            f = open("todo.txt","w+")
+            print ("Created a new file")
+            break
+        elif response == "n":
+            print ("Can't run, peace out")
+            exit()
+        else:
+            print("Don't know this answer")           
+else:
+    pass
 todo = [] # What we need to do today
 with open("todo.txt", "r") as f: # Opening todo.txt file
     todo = [line.rstrip('\n') for line in f]
 
 
 total_item = len(todo) # The number of items in the list
-counter=0 # To keep count the position we are in
-i=1 #Filling an empty spot
 
 def list (x,y):  # This function will list always list the items we have in order. If there is nothing, we say nothing
     y = len(todo)
     if y == 0: #Checks if theres anything, if not, then it will say none
-        print("You have nothing to do today yet")
+        print("You have nothing to do today")
         print("")
     else:
         while x < y:
@@ -31,13 +46,47 @@ def list (x,y):  # This function will list always list the items we have in orde
         else:
             x = 0
             print("")
-def adding ():
-    new = input("What would you like to add? ")
-    todo.append(new)
-    list(counter, total_item)
-    with open("todo.txt", "w") as f: # Save it to todo.txt
-        for s in todo:
-            f.write(str(s)+ '\n')
+""" def menu():
+    check = "yike"
+    while i>0:
+        if check == "99":
+            print("Back to menu")
+            break
+        else:
+            print("") """
+def adding (): #Adding new item to the list, writing then asking again
+    new = "yike"
+    while i>0 :
+        new = input("What would you like to add or 99 back to menu: ")
+        if new == "99":
+            print("Back to Menu")
+            break
+        else:
+            todo.append(new)
+            list(counter, total_item)
+            with open("todo.txt", "w") as f: # Save it to todo.txt
+                for s in todo:
+                    f.write(str(s)+ '\n')
+def delete ():
+    num = "yike"
+    while i>0 :
+        list(counter, total_item)
+        num = input("What would item number would you like to delete? or 99 to exit back to the menu: ")
+        if num == 99:
+            print("Back to Menu")
+            break
+        else:
+            num = int(num)
+            
+            if num > total_item:
+                print("no such number")
+            else:
+                del todo[num-1]
+                print("Item removed")
+                with open("todo.txt", "w") as f: # Save it to todo.txt
+                    for s in todo:
+                        f.write(str(s)+ '\n')
+
 
 list (counter, total_item) # Start off what we have
 
@@ -50,8 +99,8 @@ while i > 0:    #Options Options
         adding ()
     elif response == "2":
         print("")
-        print("Will delete item one day")
-        break
+        delete()
+
     elif response == "3":
         print("")
         print("Will edit item one day")
