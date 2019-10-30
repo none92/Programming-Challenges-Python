@@ -1,17 +1,17 @@
 #!/bin/python3  
-print("___________              ________           .__  .__          __") 
-print("\__    ___/___           \______ \   ____   |  | |__| _______/  |_ ")
-print("  |    | /  _ \   ______  |    |  \ /  _ \  |  | |  |/  ___/\   __\ ")
-print("  |    |(  <_> ) /_____/  |    `   (  <_> ) |  |_|  |\___ \  |  |  ")
-print("  |____| \____/          /_______  /\____/  |____/__/____  > |__|  ")
-print("                                 \/                      \/        ")
+print(" ___________              ________           .__  .__          __") 
+print(" \__    ___/___           \______ \   ____   |  | |__| _______/  |_ ")
+print("   |    | /  _ \   ______  |    |  \ /  _ \  |  | |  |/  ___/\   __\ ")
+print("   |    |(  <_> ) /_____/  |    `   (  <_> ) |  |_|  |\___ \  |  |  ")
+print("   |____| \____/          /_______  /\____/  |____/__/____  > |__|  ")
+print("                                  \/                      \/        ")
 print(" By Mako ") ### My art work
 print ("Welcome to your to-do list") #Very small intro
 print("\n")
 print ("On your current list you have:") #Show the current list
 
 todo = [] # What we need to do today
-with open("E:\Workplace\Programming Challenges\Python\Easy\\todo.txt", "r") as f: # Opening todo.txt file
+with open("todo.txt", "r") as f: # Opening todo.txt file
     todo = [line.rstrip('\n') for line in f]
 
 
@@ -35,7 +35,7 @@ def adding ():
     new = input("What would you like to add? ")
     todo.append(new)
     list(counter, total_item)
-    with open("E:\Workplace\Programming Challenges\Python\Easy\\todo.txt", "w") as f: # Save it to todo.txt
+    with open("todo.txt", "w") as f: # Save it to todo.txt
         for s in todo:
             f.write(str(s)+ '\n')
 
