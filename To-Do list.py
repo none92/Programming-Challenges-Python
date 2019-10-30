@@ -5,7 +5,7 @@ print("   |    | /  _ \   ______  |    |  \ /  _ \  |  | |  |/  ___/\   __\ ")
 print("   |    |(  <_> ) /_____/  |    `   (  <_> ) |  |_|  |\___ \  |  |  ")
 print("   |____| \____/          /_______  /\____/  |____/__/____  > |__|  ")
 print("                                  \/                      \/        ")
-print(" By Mako ") ### My art work
+print(" By none92 ") ### My art work
 print ("Welcome to your to-do list") #Very small intro
 print("\n")
 print ("On your current list you have:") #Show the current list
