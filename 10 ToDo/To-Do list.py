@@ -46,14 +46,6 @@ def list (x,y):  # This function will list always list the items we have in orde
         else:
             x = 0
             print("")
-""" def menu():
-    check = "yike"
-    while i>0:
-        if check == "99":
-            print("Back to menu")
-            break
-        else:
-            print("") """
 def adding (): #Adding new item to the list, writing then asking again
     new = "yike"
     while i>0 :
@@ -71,13 +63,12 @@ def delete ():
     num = "yike"
     while i>0 :
         list(counter, total_item)
-        num = input("What would item number would you like to delete? or 99 to exit back to the menu: ")
+        num = input("What would item number would you like to check off? or 99 to exit back to the menu: ")
+        num = int(num)
         if num == 99:
             print("Back to Menu")
             break
         else:
-            num = int(num)
-            
             if num > total_item:
                 print("no such number")
             else:
@@ -86,8 +77,43 @@ def delete ():
                 with open("todo.txt", "w") as f: # Save it to todo.txt
                     for s in todo:
                         f.write(str(s)+ '\n')
-
-
+def edit():
+    num = "yike"
+    while i>0:
+        list(counter, total_item)
+        num = input("What would item number would you like to edit? or 99 to exit back to the menu: ")
+        num = int(num)
+        if num == 99:
+            print("Back to Menu")
+            break
+        else:
+            while i > 0:
+                if num > total_item:
+                    print("no such number")
+                else: 
+                    print('(',num,')',todo[num-1])
+                    ans="n"
+                    while ans == "n":
+                        answer=input("What would you like to change it to? or 99 to go back: ")
+                        if answer == "99":
+                            break
+                        else:
+                            ans=input("Are you sure you want to make this change? ")  
+                    if answer == "99":
+                        break
+                    else:
+                        while i>0:         
+                            if ans == "y":
+                                break
+                            else:
+                                print("Try again")
+                        print( todo[num-1]," changed to ", answer)
+                        del todo[num-1]
+                        todo.insert(num-1,answer)
+                        with open("todo.txt", "w") as f: # Save it to todo.txt
+                            for s in todo:
+                                f.write(str(s)+ '\n')
+                        break
 list (counter, total_item) # Start off what we have
 
 while i > 0:    #Options Options
@@ -103,7 +129,7 @@ while i > 0:    #Options Options
 
     elif response == "3":
         print("")
-        print("Will edit item one day")
+        edit()
         
     elif response == "4":
         print("")
